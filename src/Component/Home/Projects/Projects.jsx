@@ -1,4 +1,5 @@
 
+import collegeine from "../../../assets/collegeine.png";
 import powerlern from "../../../assets/powerlern.png";
 import funtopia from "../../../assets/funtopia.png"; 
 import dmnDelisious from "../../../assets/dmnDelisious.png"; 
@@ -12,6 +13,14 @@ import Container from "../../Container";
 
 const Projects = () => {
   const projects = [
+    {
+      img:collegeine,
+      title: " college booking website ",
+      desc: " A college booking facilities website. Built with Node.js, MongoDB, React, express and Tailwind CSS ",
+      live: "https://collegeine.web.app/",
+      client_repo: "https://github.com/AbulAlaJobayar/collegeine_frontend",
+      server_repo:"https://github.com/AbulAlaJobayar/collegeine_backend",
+    },
     {
       img:powerlern,
       title: "Summer camp website ",
@@ -92,17 +101,17 @@ const Projects = () => {
         <div className="about-img"></div>
       </div>
 
-      <div className="projects  container mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-10 g-4 mb-5">
+      <div className="projects  container mx-auto grid md:grid-cols-3 gap-10  mb-5">
         {projects.map((project, i) => {
           return (
-            <div className="relative border-2 p-10  border-[#ff6900] rounded-xl gap-10" key={i}>
-              <img src={project.img} alt={project.title}  className="w-full"/>
-              <div className="flex absolute left-0 right-0 top-0 bottom-0 mx-auto w-[100%] h-[100%]  bg-[#fdf8f7]  opacity-0 duration-500 justify-center flex-col hover:opacity-100 ">
+            <div className="relative  rounded-xl gap-10" key={i}>
+              <img src={project.img} alt={project.title}  className="w-full rounded-xl"/>
+              <div className="flex absolute left-0 right-0 top-0 rounded-xl bottom-0 mx-auto w-[100%] h-[100%]  bg-[#fdf8f7]  opacity-0 duration-500 justify-center flex-col hover:opacity-100 ">
                 
-                <p className="py-5 text-2xl text-center font-bold px-2 text-[#15295f]">
+                <p className=" text-xl text-center font-bold  text-[#15295f]">
                   {project.title}
                 </p>
-                <p className="py-5 text-center font-bold px-2 text-[#15295f]">
+                <p className="py-2 text-center font-bold px-2 text-[#15295f]">
                   {project.desc}
                 </p>
 
@@ -119,16 +128,14 @@ const Projects = () => {
                   >
                     Client
                   </a>
-                 
-                  <a
-                    href={project?.server_repo}
-                    className="px-5 py-2 bg-[#ff6900]  hover:bg-[#ff9100] text-white font-bold"
-                  >
-                    {
-                        project?.server_repo?"Server":"NoServer"
-                    }
+                 {
+                   project?.server_repo && <a
+                   href={project?.server_repo}
+                   className="px-5 py-2 bg-[#ff6900]  hover:bg-[#ff9100] text-white font-bold"
+                 >Server</a>
+                 }
                     
-                  </a>
+                  
                 </div>
               </div>
             </div>
